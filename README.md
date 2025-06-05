@@ -7,8 +7,9 @@
 
 `Eixo: 5`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+O projeto consiste na idealização e implantação da infraestrutura tecnológica da Universidade Nova Horizonte – Campus Triângulo Mineiro, que contará com unidades em Uberaba, Uberlândia e Patos de Minas. O objetivo é criar uma rede moderna, segura e integrada entre os campi, utilizando tecnologias como Active Directory, DHCP, FTP, Servidor Web e DNS, com apoio à simulação em Cisco Packet Tracer. A infraestrutura prevista permitirá a oferta de serviços acadêmicos e administrativos com alto desempenho, suporte à pesquisa e inovação, além de inclusão digital na comunidade.
 
+A implementação contempla desde a criação de servidores na nuvem (AWS) até a virtualização local em ambientes Windows Server, promovendo práticas de gestão e segurança da informação alinhadas às boas práticas de rede. O projeto ainda prevê ambientes de aprendizagem híbridos, conectividade Wi-Fi em todos os setores e integração com ferramentas de monitoramento e acesso remoto, garantindo um ecossistema acadêmico tecnologicamente robusto e preparado para os desafios da transformação digital.
 ## Integrantes
 
 * Carlos Eduardo de Lima Assis
