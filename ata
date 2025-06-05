@@ -1,0 +1,68 @@
+ATA DE IMPLEMENTAÇÃO – Etapas 2 e 3
+
+Projeto: Universidade Nova Horizonte – Campus Triângulo Mineiro
+Curso: Sistemas de Informação – 5º Período – PUC Minas
+Grupo:
+Carlos Eduardo de Lima Assis
+Déborah Thaís de Matos
+Gustavo Silva Rossetti
+Junio Firmino
+Raphael Lucas Oliveira dos Santos
+Esta ata contempla o registro técnico das atividades realizadas nas etapas 2 e 3 do projeto Universidade Nova Horizonte – Campus Triângulo Mineiro. As ações desenvolvidas têm como objetivo estruturar ambientes computacionais em nuvem e locais, seguidos pela aplicação de boas práticas de gerenciamento e monitoramento de redes, garantindo a alta disponibilidade, rastreabilidade e segurança dos serviços de TI implantados.
+ETAPA 2 – Preparação de Ambiente em Nuvem e Virtualização Local
+A equipe foi dividida por especialidade técnica, e cada membro ficou responsável pela implementação e configuração de um ou mais serviços essenciais ao funcionamento da rede institucional. Foram utilizadas tecnologias como AWS EC2, Ubuntu Server, Windows Server e FileZilla, seguindo boas práticas de segmentação, segurança e organização.
+Atividade
+Responsável
+Criação e configuração do Servidor Web (EC2, Apache, segurança e testes)
+Junio Firmino
+Instalação e configuração do Servidor FTP e validação de envio via FileZilla
+Carlos Eduardo de Lima Assis
+Instalação do Servidor HTTP (Apache) e hospedagem de arquivos para acesso externo	
+Carlos Eduardo de Lima Assis
+Instalação e configuração do Active Directory (AD) com domínio empresa.local	
+Déborah Thaís de Matos
+
+
+Criação de Unidades Organizacionais, grupos e usuários no AD	
+Déborah Thaís de Matos
+Aplicação de política de segurança via GPO (senha forte)	
+Déborah Thaís de Matos
+
+
+Instalação e configuração do serviço DHCP no Ubuntu Server
+Gustavo Silva Rossetti
+Raphael Lucas Oliveira dos Santos
+Testes de atribuição de IP dinâmico e conectividade entre cliente e gateway
+Gustavo Silva Rossetti
+Raphael Lucas Oliveira dos Santos
+
+
+ETAPA 3 – Gerência e Monitoramento de Ambientes de Redes
+Cada integrante ficou responsável pelo monitoramento com Zabbix do serviço que configurou na etapa anterior. O objetivo foi assegurar a disponibilidade contínua e facilitar a identificação de falhas, além de permitir a visualização em tempo real do estado de CPU, memória e conectividade dos serviços implantados. 
+As configurações envolveram a instalação do Zabbix Agent, criação de hosts, definição de triggers de disponibilidade e visualização de gráficos.
+Atividade
+Responsável
+Servidor Web (Apache)
+Junio Firmino
+Servidor FTP e HTTP	
+Carlos Eduardo	
+Active Directory (AD) e GPO	
+Déborah Thaís de Matos
+Servidor DHCP	
+Gustavo e Raphael
+
+Atividades comuns realizadas em todos os casos:
+Instalação do Zabbix Agent no host monitorado;
+Configuração do host no Zabbix Server;
+Criação de triggers de disponibilidade;
+Verificação de coleta de dados e gráficos de consumo;
+Print de tela do painel para anexar ao relatório em PDF.
+4. Verificação Final
+Os serviços foram validados com base em testes de conectividade, resposta às requisições HTTP/FTP, atribuição dinâmica de IP e autenticação via AD. Os dashboards gerados no Zabbix apresentaram coletas contínuas e sem falhas, com gráficos de uso de recursos estabilizados e respostas dentro do esperado.
+5. Conclusão
+A infraestrutura definida no projeto foi corretamente implantada em ambientes controlados, respeitando as melhores práticas de configuração e segurança. O monitoramento com Zabbix consolidou a estabilidade da rede e demonstrou a capacidade técnica da equipe em lidar com desafios reais de redes corporativas.
+
+
+
+
+
