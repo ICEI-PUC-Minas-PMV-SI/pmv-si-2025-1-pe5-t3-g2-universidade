@@ -14,6 +14,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddScoped<IDbConnectionFactory, DbConnectionFactory>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IMatriculaRepository, MatriculaRepository>();
+builder.Services.AddScoped<IMatriculaService, MatriculaService>();
 
 var app = builder.Build();
 

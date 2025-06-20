@@ -12,17 +12,17 @@ namespace ApiNovaHorizonte.Services
             _userRepository = userRepository;
         }
 
-        public async Task<int> AddAsync(Usuario user)
+        public async Task<int> AddAsync(User user)
         {
             return await _userRepository.AddAsync(user);
         }
 
-        public async Task<IEnumerable<Usuario>> GetAllAsync()
+        public async Task<IEnumerable<User>> GetAllAsync()
         {
             return await _userRepository.GetAllAsync();
         }
 
-        public async Task<Usuario> GetByIdAsync(int id)
+        public async Task<User> GetByIdAsync(int id)
         {
             return await _userRepository.GetByIdAsync(id);
         }
@@ -32,7 +32,7 @@ namespace ApiNovaHorizonte.Services
             return await _userRepository.RemoveAsync(id);
         }
 
-        public async Task<bool> UpdateAsync(Usuario user)
+        public async Task<bool> UpdateAsync(User user)
         {
             return await _userRepository.UpdateAsync(user);
         }

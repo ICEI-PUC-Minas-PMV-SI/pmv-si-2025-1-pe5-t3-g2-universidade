@@ -33,7 +33,7 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("Create")]
-    public async Task<IActionResult> Create([FromBody] Usuario user)
+    public async Task<IActionResult> Create([FromBody] User user)
     {
         var id = await _userService.AddAsync(user);
         return CreatedAtAction(nameof(GetById), new { id = id }, user);
@@ -41,7 +41,7 @@ public class UserController : ControllerBase
 
     [HttpPut]
     [Route("Update/{id}")]
-    public async Task<IActionResult> Update(int id, [FromBody] Usuario user)
+    public async Task<IActionResult> Update(int id, [FromBody] User user)
     {
         if (id != user.Id)
             return BadRequest("ID da URL diferente do corpo da requisição.");
