@@ -1,5 +1,5 @@
 ﻿using ApiNovaHorizonte.Interfaces;
-using Microsoft.Data.SqlClient;
+using Npgsql;
 using System.Data.Common;
 
 namespace ApiNovaHorizonte.Data
@@ -15,7 +15,7 @@ namespace ApiNovaHorizonte.Data
 
         public DbConnection CreateConnection()
         {
-            return new SqlConnection(_connectionString);
+            return new NpgsqlConnection(_connectionString);
         }
     }
 }
