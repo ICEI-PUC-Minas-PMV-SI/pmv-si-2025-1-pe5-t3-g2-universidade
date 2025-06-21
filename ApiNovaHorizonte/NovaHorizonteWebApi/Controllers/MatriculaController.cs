@@ -65,4 +65,30 @@ public class MatriculaController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpGet("Get-Matriculas-Pendentes")]
+    [Authorize(Roles = "Funcionario")]
+    public async Task<IActionResult> GetPendentes()
+    {
+        var pendentes = await _matriculaService.GetPendentesAsync();
+        return Ok(pendentes);
+    }
+
+    [HttpPut("Aprovar/{id}")]
+    [Authorize(Roles = "Funcionario")]
+    public async Task<IActionResult> Aprovar(int id)
+    {
+        var result = await _matriculaService.AprovarAsync(id);
+        if (!result) return NotFound();
+        return NoContent();
+    }
+
+    [HttpPut("Rejeitar/{id}")]
+    [Authorize(Roles = "Funcionario")]
+    public async Task<IActionResult> Rejeitar(int id)
+    {
+        var result = await _matriculaService.RejeitarAsync(id);
+        if (!result) return NotFound();
+        return NoContent();
+    }
 }

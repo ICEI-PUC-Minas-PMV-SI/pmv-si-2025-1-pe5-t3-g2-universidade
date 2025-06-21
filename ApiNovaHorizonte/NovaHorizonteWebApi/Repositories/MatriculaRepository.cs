@@ -59,5 +59,20 @@ namespace ApiNovaHorizonte.Repositories
             var rowsAffected = await connection.ExecuteAsync(sql, new { Id = id });
             return rowsAffected > 0;
         }
+
+        public async Task<IEnumerable<Matricula>> GetPendentesAsync()
+        {
+            using var connection = _connectionFactory.CreateConnection();
+            var sql = "SELECT * FROM Matricula WHERE Status = 'Pendente'";
+            return await connection.QueryAsync<Matricula>(sql);
+        }
+
+        public async Task<bool> UpdateStatusAsync(int id, string status)
+        {
+            using var connection = _connectionFactory.CreateConnection();
+            var sql = "UPDATE Matricula SET Status = @Status WHERE Id = @Id";
+            var affected = await connection.ExecuteAsync(sql, new { Status = status, Id = id });
+            return affected > 0;
+        }
     }
 }

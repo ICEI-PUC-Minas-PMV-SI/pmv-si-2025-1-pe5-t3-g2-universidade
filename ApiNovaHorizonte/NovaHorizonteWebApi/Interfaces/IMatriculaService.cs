@@ -9,5 +9,8 @@ namespace ApiNovaHorizonte.Interfaces
         Task<Matricula?> GetByIdAsync(int id);
         Task<bool> UpdateAsync(Matricula matricula);
         Task<bool> RemoveAsync(int id);
+        Task<IEnumerable<Matricula>> GetPendentesAsync();
+        Task<bool> AprovarAsync(int id);
+        Task<bool> RejeitarAsync(int id);
     }
 }
