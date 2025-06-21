@@ -1,63 +1,96 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Universidade Nova Horizonte | Política de Segurança da Informação</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Universidade Nova Horizonte | Política de Segurança da Informação
+    </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <img src="logo.png" alt="Logo Universidade Nova Horizonte" id="logo">
-        <h1>Universidade Nova Horizonte</h1>
-        <h2>Campus Triângulo Mineiro</h2>
+      <img src="logo.png" alt="Logo Universidade Nova Horizonte" id="logo" />
+      <h1>Universidade Nova Horizonte</h1>
+      <h2>Campus Triângulo Mineiro</h2>
     </header>
- 
+
     <nav>
-        <ul>
-            <li><a href="index.html" class="active">Início</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
-            <li><a href="#missao">Missão</a></li>
-            <li><a href="#visao">Visão</a></li>
-            <li><a href="#objetivos">Objetivos</a></li>
-            <li><a href="#psi">PSI</a></li>
-        </ul>
+      <ul>
+        <li><a href="index.html" class="active">Início</a></li>
+        <li><a href="cursos.html">Cursos</a></li>
+        <li><a href="#missao">Missão</a></li>
+        <li><a href="#visao">Visão</a></li>
+        <li><a href="#objetivos">Objetivos</a></li>
+        <li><a href="#psi">PSI</a></li>
+        <li><a href="#" onclick="abrirLogin()">Login</a></li>
+        <li><a href="Administrador.html" id="adminMenu" style="display: none;">Administrador</a></li>
+      </ul>
     </nav>
-    
+
+    <div class="modal" id="modalLogin">
+      <div class="modal-content">
+        <span class="close" onclick="fecharLogin()">×</span>
+        <h3>Login</h3>
+        <form id="formLogin">
+          <input type="email" id="loginEmail" placeholder="Email" required />
+          <input type="password" id="loginSenha" placeholder="Senha" required />
+          <button type="submit">Entrar</button>
+        </form>
+      </div>
+    </div>
+
     <main>
-        <section id="missao">
-            <h3>Missão</h3>
-            <p>Formar profissionais éticos, inovadores e comprometidos com a transformação social, promovendo ensino de qualidade, pesquisa aplicada e ações de extensão para o desenvolvimento sustentável.</p>
-        </section>
+      <section id="missao">
+        <h3>Missão</h3>
+        <p>
+          Formar profissionais éticos, inovadores e comprometidos com a
+          transformação social, promovendo ensino de qualidade, pesquisa
+          aplicada e ações de extensão para o desenvolvimento sustentável.
+        </p>
+      </section>
 
-        <section id="visao">
-            <h3>Visão</h3>
-            <p>Ser referência nacional em inovação, qualidade acadêmica e transformação digital, impactando positivamente a sociedade através da educação.</p>
-        </section>
+      <section id="visao">
+        <h3>Visão</h3>
+        <p>
+          Ser referência nacional em inovação, qualidade acadêmica e
+          transformação digital, impactando positivamente a sociedade através da
+          educação.
+        </p>
+      </section>
 
-        <section id="objetivos">
-            <h3>Objetivos</h3>
-            <ul>
-                <li>Implementar uma infraestrutura de rede moderna e segura.</li>
-                <li>Promover excelência no ensino e na pesquisa.</li>
-                <li>Fomentar inovação, empreendedorismo e extensão comunitária.</li>
-                <li>Garantir sustentabilidade e conectividade tecnológica.</li>
-            </ul>
-        </section>
+      <section id="objetivos">
+        <h3>Objetivos</h3>
+        <ul>
+          <li>Implementar uma infraestrutura de rede moderna e segura.</li>
+          <li>Promover excelência no ensino e na pesquisa.</li>
+          <li>Fomentar inovação, empreendedorismo e extensão comunitária.</li>
+          <li>Garantir sustentabilidade e conectividade tecnológica.</li>
+        </ul>
+      </section>
 
-        <section id="psi">
-            <h3>Política de Segurança da Informação (PSI)</h3>
-            <p>A PSI estabelece diretrizes para proteger a confidencialidade, integridade, disponibilidade e legalidade da informação no ambiente universitário.</p>
+      <section id="psi">
+        <h3>Política de Segurança da Informação (PSI)</h3>
+        <p>
+          A PSI estabelece diretrizes para proteger a confidencialidade,
+          integridade, disponibilidade e legalidade da informação no ambiente
+          universitário.
+        </p>
 
-            <a href="Politica_Seguranca.pdf" download class="download-btn">📥 Baixar PSI (PDF)</a>
-        </section>
+        <a href="Politica_Seguranca.pdf" download class="download-btn"
+          >📥 Baixar PSI (PDF)</a
+        >
+      </section>
     </main>
 
     <footer>
-        <p>© 2025 Universidade Nova Horizonte | Projeto de Infraestrutura de Rede - PUC Minas</p>
+      <p>
+        © 2025 Universidade Nova Horizonte | Projeto de Infraestrutura de Rede -
+        PUC Minas
+      </p>
     </footer>
 
     <script src="script.js"></script>
-</body>
+    <script src="loginScript.js"></script>
+  </body>
 </html>
