@@ -2,6 +2,7 @@
 using ApiNovaHorizonte.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 [ApiController]
 [Route("Api/V1/[controller]")]
@@ -34,7 +35,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpPost("Create")]
-    [Authorize(Roles = "Funcionario")]
+    //[Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> Create([FromBody] Matricula matricula)
     {
         var id = await _matriculaService.AddAsync(matricula);
@@ -90,5 +91,16 @@ public class MatriculaController : ControllerBase
         var result = await _matriculaService.RejeitarAsync(id);
         if (!result) return NotFound();
         return NoContent();
+    }
+
+    [HttpGet("Get-Meus-Cursos")]
+    [Authorize(Roles = "Aluno")]
+    public async Task<IActionResult> GetMeusCursos()
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrEmpty(userIdClaim)) return Unauthorized();
+
+        var cursos = await _matriculaService.GetCursosByAlunoAsync(int.Parse(userIdClaim));
+        return Ok(cursos);
     }
 }

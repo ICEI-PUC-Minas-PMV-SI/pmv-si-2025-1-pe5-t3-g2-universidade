@@ -74,5 +74,22 @@ namespace ApiNovaHorizonte.Repositories
             var affected = await connection.ExecuteAsync(sql, new { Status = status, Id = id });
             return affected > 0;
         }
+
+        public async Task<IEnumerable<string>> GetCursosByAlunoAsync(int userId)
+        {
+            using var connection = _connectionFactory.CreateConnection();
+
+            var query = @"
+                    SELECT Curso
+                    FROM Matricula
+                    WHERE Email = (
+                        SELECT Email FROM Usuarios WHERE Id = @Id
+                    )
+                    AND Status = 'Aprovado'
+                ";
+
+            var cursos = await connection.QueryAsync<string>(query, new { Id = userId });
+            return cursos;
+        }
     }
 }

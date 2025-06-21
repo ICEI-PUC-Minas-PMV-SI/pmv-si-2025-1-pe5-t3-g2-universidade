@@ -12,5 +12,6 @@ namespace ApiNovaHorizonte.Interfaces
         Task<IEnumerable<Matricula>> GetPendentesAsync();
         Task<bool> AprovarAsync(int id);
         Task<bool> RejeitarAsync(int id);
+        Task<IEnumerable<string>> GetCursosByAlunoAsync(int userId);
     }
 }

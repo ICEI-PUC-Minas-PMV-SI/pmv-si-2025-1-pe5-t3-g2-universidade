@@ -69,5 +69,10 @@ namespace ApiNovaHorizonte.Services
 
             return await _matriculaRepository.UpdateStatusAsync(id, "Rejeitado");
         }
+
+        public async Task<IEnumerable<string>> GetCursosByAlunoAsync(int userId)
+        {
+            return await _matriculaRepository.GetCursosByAlunoAsync(userId);
+        }
     }
 }
