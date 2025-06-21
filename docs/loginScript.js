@@ -13,7 +13,7 @@ async function handleLogin(event) {
   const senha = document.getElementById('loginSenha').value;
 
   try {
-    const response = await fetch('https://localhost:7124/Api/V1/User/Login', {
+    const response = await fetch('https://carlosdv11.bsite.net/Api/V1/User/Login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, senha })

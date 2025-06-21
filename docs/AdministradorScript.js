@@ -10,7 +10,7 @@ const tableBody = document.querySelector('#matriculasTable tbody');
 
 async function carregarMatriculas() {
   try {
-    const res = await fetch('https://localhost:7124/Api/V1/Matricula/Get-Matriculas-Pendentes', {
+    const res = await fetch('https://carlosdv11.bsite.net/Api/V1/Matricula/Get-Matriculas-Pendentes', {
       headers: {
         'Authorization': `Bearer ${token}`
       }
@@ -52,7 +52,7 @@ async function carregarMatriculas() {
 
 async function aprovarMatricula(id) {
   try {
-    const res = await fetch(`https://localhost:7124/Api/V1/Matricula/Aprovar/${id}`, {
+    const res = await fetch(`https://carlosdv11.bsite.net/Api/V1/Matricula/Aprovar/${id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`
@@ -75,7 +75,7 @@ async function aprovarMatricula(id) {
 
 async function reprovarMatricula(id) {
   try {
-    const res = await fetch(`https://localhost:7124/Api/V1/Matricula/Rejeitar/${id}`, {
+    const res = await fetch(`https://carlosdv11.bsite.net/Api/V1/Matricula/Rejeitar/${id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`
