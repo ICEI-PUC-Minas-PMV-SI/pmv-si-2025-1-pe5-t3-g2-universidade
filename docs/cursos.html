@@ -33,6 +33,7 @@
                     <li>Engenharia de Software</li>
                     <li>Sistemas de Informação</li>
                     <li>Ciência da Computação</li>
+                    <button onclick="abrirModal('Ciências Exatas')">Matricule-se</button>
                 </ul>
             </div>
 
@@ -43,6 +44,7 @@
                     <li>Administração</li>
                     <li>Psicologia</li>
                     <li>Direito</li>
+                    <button onclick="abrirModal('Ciências Humanas')">Matricule-se</button>
                 </ul>
             </div>
 
@@ -53,6 +55,7 @@
                     <li>Enfermagem</li>
                     <li>Fisioterapia</li>
                     <li>Biomedicina</li>
+                    <button onclick="abrirModal('Ciências da Saúde')">Matricule-se</button>
                 </ul>
             </div>
 
@@ -62,6 +65,23 @@
     <footer>
         <p>© 2025 Universidade Nova Horizonte | Projeto de Infraestrutura de Rede - PUC Minas</p>
     </footer>
+
+    <div class="modal" id="modalMatricula">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">×</span>
+            <h3>Formulário de Matrícula</h3>
+            <form id="formMatricula">
+                <input type="text" id="nome" placeholder="Nome" required />
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="tel" id="telefone" placeholder="Telefone" required />
+                <input type="hidden" id="curso" />
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+</div>
+
+
+<script src="CursoScript.js"></script>
 
 </body>
 </html>
