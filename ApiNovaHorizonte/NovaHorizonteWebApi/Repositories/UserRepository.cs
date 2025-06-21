@@ -58,5 +58,13 @@ namespace ApiNovaHorizonte.Repositories
             var rowsAffected = await connection.ExecuteAsync(sql, user);
             return rowsAffected > 0;
         }
+
+        public async Task<User?> GetByEmailAndSenhaAsync(string email, string senha)
+        {
+            using var connection = _connectionFactory.CreateConnection();
+            var sql = "SELECT * FROM [User] WHERE Email = @Email AND Senha = @Senha";
+            return await connection.QueryFirstOrDefaultAsync<User>(sql, new { Email = email, Senha = senha });
+        }
+
     }
 }

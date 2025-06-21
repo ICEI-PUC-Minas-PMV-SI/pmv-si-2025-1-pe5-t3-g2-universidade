@@ -1,5 +1,7 @@
-﻿using ApiNovaHorizonte.Interfaces;
+﻿using ApiNovaHorizonte.DTOs;
+using ApiNovaHorizonte.Interfaces;
 using ApiNovaHorizonte.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -15,6 +17,7 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Route("Get-All")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> GetAll()
     {
         var users = await _userService.GetAllAsync();
@@ -23,6 +26,7 @@ public class UserController : ControllerBase
 
     [HttpGet]
     [Route("Get-By-Id/{id}")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> GetById(int id)
     {
         var user = await _userService.GetByIdAsync(id);
@@ -33,6 +37,7 @@ public class UserController : ControllerBase
 
     [HttpPost]
     [Route("Create")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> Create([FromBody] User user)
     {
         var id = await _userService.AddAsync(user);
@@ -41,6 +46,7 @@ public class UserController : ControllerBase
 
     [HttpPut]
     [Route("Update/{id}")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> Update(int id, [FromBody] User user)
     {
         if (id != user.Id)
@@ -54,11 +60,24 @@ public class UserController : ControllerBase
 
     [HttpDelete]
     [Route("Delete/{id}")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> Delete(int id)
     {
         var deleted = await _userService.RemoveAsync(id);
         if (!deleted)
             return NotFound();
         return NoContent();
+    }
+
+    [HttpPost]
+    [Route("Login")]
+
+    public async Task<IActionResult> Login([FromBody] LoginDTO login)
+    {
+        var token = await _userService.LoginJwtAsync(login.Email, login.Senha);
+        if (token == null)
+            return Unauthorized("Credenciais inválidas");
+
+        return Ok(new { Token = token });
     }
 }

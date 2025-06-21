@@ -1,5 +1,6 @@
 ﻿using ApiNovaHorizonte.Interfaces;
 using ApiNovaHorizonte.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -14,6 +15,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpGet("Get-All")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> GetAll()
     {
         var matriculas = await _matriculaService.GetAllAsync();
@@ -21,6 +23,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpGet("Get-By-Id/{id}")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> GetById(int id)
     {
         var matricula = await _matriculaService.GetByIdAsync(id);
@@ -31,6 +34,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpPost("Create")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> Create([FromBody] Matricula matricula)
     {
         var id = await _matriculaService.AddAsync(matricula);
@@ -38,6 +42,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpPut("Update/{id}")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> Update(int id, [FromBody] Matricula matricula)
     {
         if (id != matricula.Id)
@@ -51,6 +56,7 @@ public class MatriculaController : ControllerBase
     }
 
     [HttpDelete("Delete/{id}")]
+    [Authorize(Roles = "Funcionario")]
     public async Task<IActionResult> Delete(int id)
     {
         var deleted = await _matriculaService.RemoveAsync(id);

@@ -9,5 +9,6 @@ namespace ApiNovaHorizonte.Interfaces
         Task<int> AddAsync(User user);
         Task<bool> UpdateAsync(User user);
         Task<bool> RemoveAsync(int id);
+        Task<User?> GetByEmailAndSenhaAsync(string email, string senha);
     }
 }
