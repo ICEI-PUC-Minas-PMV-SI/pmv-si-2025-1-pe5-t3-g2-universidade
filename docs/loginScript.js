@@ -51,34 +51,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function atualizarMenu() {
   const tipo = localStorage.getItem('tipoUsuario');
-  const adminMenu = document.getElementById('adminMenu');
 
-  if (tipo === "2") {
-    adminMenu.style.display = 'inline-block';
-  } else {
-    adminMenu.style.display = 'none';
-  }
-}
-
-function logout() {
-  localStorage.removeItem('token');
-  localStorage.removeItem('tipoUsuario');
-  atualizarMenu();
-  alert('Logout realizado com sucesso!');
-  fecharLogin();
-}
-
-// Atualiza o menu para mostrar ou esconder logout/login/admin
-function atualizarMenu() {
-  const tipo = localStorage.getItem('tipoUsuario');
   const adminMenu = document.getElementById('adminMenu');
   const logoutBtn = document.getElementById('logoutBtn');
   const loginLi = document.getElementById('loginLi');
+  const menuCursos = document.getElementById('menuCursos');
+  const menuMeusCursos = document.getElementById('menuMeusCursos');
 
-  if (tipo === "2") {
+  if (tipo === "2") { // Funcionario
     adminMenu.style.display = 'inline-block';
+    menuCursos.style.display = 'inline-block';
+    menuMeusCursos.style.display = 'none';
+  } else if (tipo === "1") { // Aluno
+    adminMenu.style.display = 'none';
+    menuCursos.style.display = 'none';
+    menuMeusCursos.style.display = 'inline-block';
   } else {
     adminMenu.style.display = 'none';
+    menuCursos.style.display = 'inline-block';
+    menuMeusCursos.style.display = 'none';
   }
 
   if (tipo) {
@@ -89,4 +80,17 @@ function atualizarMenu() {
     loginLi.style.display = 'inline-block';
   }
 }
+
+
+function logout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('tipoUsuario');
+  atualizarMenu();
+  alert('Logout realizado com sucesso!');
+  fecharLogin();
+}
+
+
+
+
 

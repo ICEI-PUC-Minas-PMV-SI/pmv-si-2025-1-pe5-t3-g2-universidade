@@ -18,14 +18,22 @@
     <nav>
       <ul>
         <li><a href="index.html" class="active">Início</a></li>
-        <li><a href="cursos.html">Cursos</a></li>
+        <li id="menuCursos"><a href="cursos.html">Cursos</a></li>
+        <li id="menuMeusCursos" style="display: none">
+          <a href="MeusCursos.html">Meus Cursos</a>
+        </li>
+
         <li><a href="#missao">Missão</a></li>
         <li><a href="#visao">Visão</a></li>
         <li><a href="#objetivos">Objetivos</a></li>
         <li><a href="#psi">PSI</a></li>
         <li id="loginLi"><a href="#" onclick="abrirLogin()">Login</a></li>
-        <li><a href="Administrador.html" id="adminMenu" style="display:none;">Administrador</a></li>
-        <li><a href="#" id="logoutBtn" style="display:none;" onclick="logout()">Logout</a></li>
+        <li id="adminMenu" style="display: none">
+          <a href="Administrador.html">Administrador</a>
+        </li>
+        <li id="logoutBtn" style="display: none">
+          <a href="#" onclick="logout()">Logout</a>
+        </li>
       </ul>
     </nav>
 
